@@ -3,8 +3,8 @@ import { Personaje } from "../interfaces/dbz.interface";
 
 @Injectable()
 export class dbzService{
-
-    personajes:Personaje[] = [
+//propiedades
+    private _personajes:Personaje[] = [
         {
           nombre: 'goku',
           poder: 15000
@@ -14,8 +14,14 @@ export class dbzService{
           poder: 13000
         }
       ];
-      
-    constructor(){
-        console.log('servicio bien bonito');
+//getters and setters
+    get personajes():Personaje[]{
+        return [...this._personajes];
+    }
+//constructor
+    constructor(){}
+//metodos
+    agregarPersonaje(personaje: Personaje){
+        this._personajes.push(personaje);
     }
 }
